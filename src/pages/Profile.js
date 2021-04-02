@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function urlB64ToUint8Array(base64String) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding)
-    .replace(/\-/g, "+")
+    .replace(/-/g, "+")
     .replace(/_/g, "/");
 
   const rawData = window.atob(base64);
@@ -24,10 +24,17 @@ async function subscribe() {
       userVisibleOnly: true,
       applicationServerKey: urlB64ToUint8Array(key),
     });
+    console.log(sub, "Sub");
     console.log("Subscribed!");
   } catch (error) {
     console.error("Cannot subscribe.");
   }
+}
+
+function testPushMessage() {
+  global.registration.showNotification("Test Message", {
+    body: "Success!",
+  });
 }
 
 function Profile() {
@@ -181,7 +188,9 @@ function Profile() {
             </li>
             <li className="pb-3 mb-2 flex items-center justify-between w-full border-b border-gray-100">
               <span>Test Notification</span>
-              <button className="hover:underline appearance-none">
+              <button 
+              className="hover:underline appearance-none"
+              onClick={testPushMessage}>
                 Push Now
               </button>
             </li>
