@@ -17,7 +17,8 @@ function urlB64ToUint8Array(base64String) {
 
 async function subscribe() {
   const key =
-    "BJkK5sOVrfP3_BHQhwIkWPOb4Fm003zu7ZuqdL_-tTdfq8hoI7wfcB-XFgln5hs5o4EyrBiIQJTrXUMONTRqLn8BJkK5sOVrfP3_BHQhwIkWPOb4Fm003zu7ZuqdL_-tTdfq8hoI7wfcB-XFgln5hs5o4EyrBiIQJTrXUMONTRqLn8BJkK5sOVrfP3_BHQhwIkWPOb4Fm003zu7ZuqdL_-tTdfq8hoI7wfcB-XFgln5hs5o4EyrBiIQJTrXUMONTRqLn8";
+    "BA4OeDgcPIz8af88-7_pJeWQ9tLMk5AG5CL6IWrDVHXRZYqBhbwsCz8nlNhL0cSsMCRP6GNgoGlc3ArRwF1j2cs";
+
   try {
     const sub = await global.registration.pushManager.subscribe({
       userVisibleOnly: true,
